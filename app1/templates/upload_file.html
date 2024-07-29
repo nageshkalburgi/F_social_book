@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" id="upload-file">
+    <h2 style="text-align: center;margin-top: 20px; margin-bottom: 50px; padding: 10px;background-color: aqua;">Upload Book</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
+{% endblock %}

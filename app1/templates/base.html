@@ -10,21 +10,29 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light  " style="height: 70px;" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark  " style="height: 70px;" >
         <a href="{% url 'login' %}" style="color: rgb(69, 78, 195); font-style: bold; margin-left: 5px;"  >
                     <img src="{% static 'deskapp/vendors/images/favicon-32x32.png' %}" alt="" style="margin-left: 20px;"> 
                     </a>
-         <a class="navbar-brand" href="{% url 'home' %}  " style="color: blue; "><b>Social Book</b></a> 
+         <a class="navbar-brand" href="{% url 'dashboard' %}  " style="color: blue; "><b>Social Book</b></a> 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link" href="{% url 'upload_file' %}">Dashboard</a>
                 </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authors_and_sellers' %}">Authors and Sellers</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'register' %}">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
             </ul>
         </div>

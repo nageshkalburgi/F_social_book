@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Your Uploaded Books</h2>
+    <ul>
+        {% for file in files %}
+            <li style="border: 1px solid;width: 400px;margin-bottom: 30px;margin-left: 20px;text-align: center;height: 100%;border-radius: 20px;background-color: aqua;">
+                <strong>{{ file.title }}</strong> ({{ file.year_of_publication }})<br>
+                {{ file.description }}<br>
+                Cost: ${{ file.cost }}<br>
+                <a href="{{ file.file.url }}"download>Download</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

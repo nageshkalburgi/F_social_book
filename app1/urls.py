@@ -1,12 +1,25 @@
 # users/urls.py
 from django.urls import path
-from .views import home, register, login
+from .views import dashboard, register, login
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
-    path('home/', home, name='home'),
+    path('home/', dashboard, name='home'),
     path('register/', register, name='register'),
     path('', login, name='login'),
-    path('index',views.index, name='index'),
-    path('password_reset',views.password_reset,name='password_reset')
+    path("logout/",views.custom_logout , name="logout"),
+    path('dashboard/',views.dashboard, name='dashboard'),
+    path('password_reset',views.password_reset,name='password_reset'),
+
+    path('authors-and-sellers/', views.authors_and_sellers, name='authors_and_sellers'),
+    path('upload/', views.upload_file, name='upload_file'),
+    path('uploaded-files/', views.uploaded_files, name='uploaded_files'),
+    # path('api/users/', views.UserListCreateView.as_view(), name='user-list-create'),
 ]
+
+# Serve media files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

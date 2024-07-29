@@ -1,0 +1,84 @@
+django==4.2.14
+django-djoser==2.1.0
+djangorestframework==3.15.0
+sqlalchemy==2.0.17
+psycopg2-binary==2.9.6
+pandas==2.0.2
+numpy==1.25.2
+
+
+'''
+_______________________________________________________________________________
+Project Structure
+_______________________________________________________________________________
+
+social_book/
+├── app1/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+│   └── migrations/
+│       ├── __init__.py
+│       ├── 0001_initial.py
+│       └── ...
+├── social_book/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── ...
+├── myenv/
+│   └── ... (virtual environment files)
+├── manage.py
+├── requirements.txt
+├── static/
+│   └── css/
+│       └── (CSS template files)
+├── templates/
+│   ├── base.html
+│   ├── register.html
+│   └── ...
+├── sqlalchemy_script.py
+└── pandas_script.py
+
+_______________________________________________________________________________________
+Description of Files and Directories
+Django Project Files
+_______________________________________________________________________________________
+
+app1/: Your Django application directory containing models, views, and templates.
+models.py: Contains your custom user model and other models.
+views.py: Handles your views, including the registration and "Authors and Sellers" pages.
+forms.py: Defines forms used for user registration and other operations.
+urls.py: URL routing for app1.
+admin.py: Registers models with the Django admin.
+social_book/: Contains project settings and configurations.
+settings.py: Project settings including database configuration and installed apps.
+urls.py: URL routing for the project.
+manage.py: Command-line utility for Django commands.
+Virtual Environment
+
+myenv/: Directory for your virtual environment where dependencies are installed.
+Static Files
+
+static/: Contains static files such as CSS templates.
+css/: Directory for CSS files used in your templates.
+Templates
+
+templates/: Directory for HTML template files used in your Django views.
+base.html: Base template for common structure.
+register.html: Template for the registration page.
+Additional Scripts
+
+sqlalchemy_script.py: Script for SQLAlchemy operations (connecting to PostgreSQL, executing queries).
+pandas_script.py: Script for Pandas operations (creating DataFrames, filtering, and appending).
+requirements.txt
+
+Contains a list of installed packages and their versions. Generated with pip freeze > requirements.txt.
+'''

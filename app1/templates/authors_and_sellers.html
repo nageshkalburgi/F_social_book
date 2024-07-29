@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+<div class="container">
+    
+    <center>
+        <div id="container">
+            <h2>Authors and Sellers</h2>
+            
+            <table>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                </tr>
+                {% for i in users %}
+                <tr>
+                    <td>{{ i.username }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.address }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+
+    <!-- <ul>
+        {% for user in users %}
+            <li> -  - </li>
+        {% endfor %}
+    </ul> -->
+</div>
+{% endblock content %}
