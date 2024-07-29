@@ -1,0 +1,24 @@
+#register-div {
+    height: 300px;
+    margin-top: 150px;
+    width: 600px;
+    border: 1px solid transparent;
+    margin-left: 250px;
+
+}
+
+#register-form1 {
+
+    width: 500px;
+    margin-top: 50px;
+    border: 2px solid black transparent;
+    border-radius: 20px;
+    margin-bottom: 50px;
+
+
+}
+
+#register-div:hover {
+    box-shadow: 0px 0px 20px rgb(22, 56, 209);
+    border-radius: 20px;
+}
