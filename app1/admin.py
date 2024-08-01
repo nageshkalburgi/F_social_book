@@ -1,9 +1,13 @@
 # users/admin.py
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import Group
 from .models import CustomUser
 from .forms import CustomUserCreationForm
+
+
+# from app1.models import UploadedFiles 
 
 class UserAdmin(BaseUserAdmin):
     # The forms to add and change user instances
@@ -31,8 +35,15 @@ class UserAdmin(BaseUserAdmin):
     ordering = ('username',)
     filter_horizontal = ('groups', 'user_permissions')
 
+class UploadedFilesAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'visibility', 'cost', 'year_of_publication')
+    search_fields = ('title', 'description')
+    list_filter = ('visibility', 'year_of_publication')
+
+# admin.site.register(UploadedFiles, UploadedFilesAdmin)
 # Now register the new UserAdmin...
 admin.site.register(CustomUser, UserAdmin)
 # ... and, since we're not using Django's built-in permissions,
 # unregister the Group model from admin.
 admin.site.unregister(Group)
+
