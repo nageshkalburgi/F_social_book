@@ -21,7 +21,7 @@
 
 #register-div:hover {
     border: 2px solid black transparent;
-    box-shadow: 0px 0px 20px rgb(22, 56, 209);
+    box-shadow: 0px 0px 20px black;
     border-radius: 20px;
 
 }

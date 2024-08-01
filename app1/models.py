@@ -1,11 +1,11 @@
 
 
-# users/models.py
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 from django.conf import settings
-
+from django.contrib.auth.models import User
 class CustomUser(AbstractUser):
+    # user = models.ForeignKey(User,on_delete=models.CASCADE)
     public_visibility = models.BooleanField(default=False)
     birth_year = models.IntegerField(null=True, blank=True)
     address = models.CharField(max_length=255, null=True, blank=True)
@@ -13,14 +13,13 @@ class CustomUser(AbstractUser):
 
     groups = models.ManyToManyField(
         Group,
-        related_name='customuser_set',  # Add this line
         blank=True,
         help_text='The groups this user belongs to.',
         verbose_name='groups',
     )
     user_permissions = models.ManyToManyField(
         Permission,
-        related_name='customuser_set',  # Add this line
+        related_name='customuser_set',  
         blank=True,
         help_text='Specific permissions for this user.',
         verbose_name='user permissions',

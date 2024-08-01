@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body style="background-color: #242b4d;">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark  " style="height: 70px;" >
         <a href="{% url 'login' %}" style="color: rgb(69, 78, 195); font-style: bold; margin-left: 5px;"  >
                     <img src="{% static 'deskapp/vendors/images/favicon-32x32.png' %}" alt="" style="margin-left: 20px;"> 
@@ -18,22 +18,36 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'upload_file' %}">Dashboard</a>
+                    <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
                 </li>
               
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'authors_and_sellers' %}">Authors and Sellers</a>
                 </li>
-
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'upload_file' %}">Upload Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'dashboard' %}"  style="color: aqua;">Hello, {{user | upper}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'uploaded_files' %}">My Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'register' %}">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                </li>
+                {% endif %}
+                
+              
+               
             </ul>
         </div>
     </nav>
